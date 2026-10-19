@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bwkj73cu2clj"]
+
+[ext_resource type="Script" uid="uid://dofcv6e14hvor" path="res://scenes/platforms/vertical/VerticalPlatform.cs" id="1_srxuy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vl0vk"]
+size = Vector2(85, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s0rh0"]
+size = Vector2(84, 129)
+
+[sub_resource type="Gradient" id="Gradient_agdev"]
+colors = PackedColorArray(0.26147652, 0.26147655, 0.26147652, 1, 0.49019608, 0.49019608, 0.49019608, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_73s6x"]
+gradient = SubResource("Gradient_agdev")
+width = 256
+height = 128
+fill_from = Vector2(0.5121528, 1)
+fill_to = Vector2(0.5017361, 0)
+
+[node name="VerticalPlatform2" type="Area2D" unique_id=80465356]
+script = ExtResource("1_srxuy")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1509452425]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1401164866]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_vl0vk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=802525700]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_s0rh0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2030982126]
+position = Vector2(-1.9073486e-06, 0.7499999)
+scale = Vector2(0.328125, 1.0039063)
+texture = SubResource("GradientTexture2D_73s6x")

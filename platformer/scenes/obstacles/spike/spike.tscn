@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://ctjx5y3qga41u"]
+
+[ext_resource type="Script" uid="uid://cqa8js4mnj6al" path="res://scenes/obstacles/spike/Spike.cs" id="1_wr4kw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qiqx3"]
+size = Vector2(32, 16)
+
+[sub_resource type="Gradient" id="Gradient_wr4kw"]
+colors = PackedColorArray(0.1893278, 0.18932778, 0.1893278, 1, 0.30544624, 0.3054462, 0.3054462, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wdw42"]
+gradient = SubResource("Gradient_wr4kw")
+width = 32
+height = 16
+fill_from = Vector2(0.5260417, 1)
+fill_to = Vector2(0.5295139, 0.017361112)
+
+[node name="Spike" type="Area2D" unique_id=1317916919]
+script = ExtResource("1_wr4kw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2084368168]
+shape = SubResource("RectangleShape2D_qiqx3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=567785338]
+texture = SubResource("GradientTexture2D_wdw42")

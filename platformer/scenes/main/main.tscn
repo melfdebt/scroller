@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://11kel8pe5s"]
+
+[ext_resource type="PackedScene" uid="uid://dr8ioja5inmsv" path="res://scenes/player/player.tscn" id="1_hyk8p"]
+[ext_resource type="Script" uid="uid://kainaieipoy5" path="res://scenes/main/Main.cs" id="1_iuonh"]
+[ext_resource type="PackedScene" uid="uid://brfstypgyg6v0" path="res://scenes/enemies/bat/bat.tscn" id="2_b1x3f"]
+[ext_resource type="PackedScene" uid="uid://0tfuksdshvq5" path="res://scenes/platforms/floating/FloatingPlatform1.tscn" id="2_raeie"]
+[ext_resource type="PackedScene" uid="uid://db6dpfatbvred" path="res://scenes/enemies/dragon/dragon.tscn" id="3_a8run"]
+[ext_resource type="PackedScene" uid="uid://d1abkleitroos" path="res://scenes/platforms/floating/FloatingPlatform2.tscn" id="3_hxu8e"]
+[ext_resource type="PackedScene" uid="uid://ddhrkrvq55uvm" path="res://scenes/platforms/floating/FloatingPlatform3.tscn" id="4_nvumn"]
+[ext_resource type="PackedScene" uid="uid://b4l58820mqxiy" path="res://scenes/enemies/warg/warg.tscn" id="4_ouso4"]
+[ext_resource type="PackedScene" uid="uid://jpmhnyta68rt" path="res://scenes/enemies/zombie/zombie.tscn" id="5_blune"]
+[ext_resource type="PackedScene" uid="uid://sj5laa7kg4qm" path="res://scenes/platforms/vertical/VerticalPlatform1.tscn" id="5_ou6is"]
+[ext_resource type="PackedScene" uid="uid://bwkj73cu2clj" path="res://scenes/platforms/vertical/VerticalPlatform2.tscn" id="6_necax"]
+[ext_resource type="PackedScene" uid="uid://b3usfhhph5mxe" path="res://scenes/obstacles/rock/rock.tscn" id="6_th5th"]
+[ext_resource type="PackedScene" uid="uid://dq08cg2t0l2is" path="res://scenes/obstacles/saw/saw.tscn" id="7_7smn1"]
+[ext_resource type="PackedScene" uid="uid://dmx8wodaqpuss" path="res://scenes/platforms/vertical/VerticalPlatform3.tscn" id="7_r4lks"]
+[ext_resource type="PackedScene" uid="uid://ctjx5y3qga41u" path="res://scenes/obstacles/spike/spike.tscn" id="8_raeie"]
+
+[sub_resource type="Gradient" id="Gradient_vom5j"]
+colors = PackedColorArray(0, 0, 0.48235294, 1, 0.03741971, 0.20505953, 0.29545698, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ntbkr"]
+gradient = SubResource("Gradient_vom5j")
+fill_from = Vector2(0.7586806, 0.6163194)
+fill_to = Vector2(0.050347224, 0.019097222)
+
+[sub_resource type="Gradient" id="Gradient_hyk8p"]
+colors = PackedColorArray(0, 0.28627452, 0, 1, 0.27058825, 0.5803922, 0.27058825, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rub7e"]
+gradient = SubResource("Gradient_hyk8p")
+fill_from = Vector2(0, 0.067708336)
+fill_to = Vector2(0.5434028, 0.5989583)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ntbkr"]
+size = Vector2(1161, 139)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rub7e"]
+size = Vector2(25, 671)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i75m2"]
+size = Vector2(1182, 11)
+
+[node name="main" type="Node2D" unique_id=377698086]
+script = ExtResource("1_iuonh")
+PlatformScenes = Array[PackedScene]([ExtResource("2_raeie"), ExtResource("3_hxu8e"), ExtResource("4_nvumn"), ExtResource("5_ou6is"), ExtResource("6_necax"), ExtResource("7_r4lks")])
+EnemyScenes = Array[PackedScene]([ExtResource("2_b1x3f"), ExtResource("3_a8run"), ExtResource("4_ouso4"), ExtResource("5_blune")])
+ObstacleScenes = Array[PackedScene]([ExtResource("6_th5th"), ExtResource("7_7smn1"), ExtResource("8_raeie")])
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=8485273]
+position = Vector2(575.5, 323.5)
+scale = Vector2(18.015625, 10.140625)
+texture = SubResource("GradientTexture2D_ntbkr")
+
+[node name="ground" type="StaticBody2D" parent="." unique_id=507009066]
+
+[node name="grass" type="Sprite2D" parent="ground" unique_id=609477893]
+position = Vector2(576, 581.5)
+scale = Vector2(18.125, 2.234375)
+texture = SubResource("GradientTexture2D_rub7e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground" unique_id=1438219741]
+position = Vector2(579, 582)
+shape = SubResource("RectangleShape2D_ntbkr")
+
+[node name="Player" parent="." unique_id=1874043619 groups=["player"] instance=ExtResource("1_hyk8p")]
+position = Vector2(90, 488)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=285992334]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1170920533]
+position = Vector2(-11, 327)
+shape = SubResource("RectangleShape2D_rub7e")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1666785655]
+position = Vector2(583, 0)
+shape = SubResource("RectangleShape2D_i75m2")

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://db6dpfatbvred"]
+
+[ext_resource type="Script" uid="uid://dvmmcspp1jtfw" path="res://scenes/enemies/dragon/Dragon.cs" id="1_ris0d"]
+[ext_resource type="PackedScene" uid="uid://e6elxu0uayw4" path="res://scenes/bullets/bullet.tscn" id="2_0qdhg"]
+
+[sub_resource type="Gradient" id="Gradient_nal3o"]
+colors = PackedColorArray(0.25129965, 0.003837176, 0.1604634, 1, 0.13473973, 0.017650345, 0.01144009, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_osm5n"]
+gradient = SubResource("Gradient_nal3o")
+width = 48
+height = 32
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yk7cf"]
+size = Vector2(48, 32)
+
+[node name="Dragon" type="Area2D" unique_id=1871901673]
+script = ExtResource("1_ris0d")
+BulletScene = ExtResource("2_0qdhg")
+MaxHealth = 50.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=943626719]
+texture = SubResource("GradientTexture2D_osm5n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1093321574]
+shape = SubResource("RectangleShape2D_yk7cf")

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://brfstypgyg6v0"]
+
+[ext_resource type="Script" uid="uid://uaappod7tu1i" path="res://scenes/enemies/bat/Bat.cs" id="1_osm5n"]
+
+[sub_resource type="Gradient" id="Gradient_62tr8"]
+colors = PackedColorArray(0, 0, 0, 1, 0.26438904, 0.264389, 0.264389, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ntbkr"]
+gradient = SubResource("Gradient_62tr8")
+width = 24
+height = 24
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rub7e"]
+size = Vector2(24, 24)
+
+[node name="Bat" type="Area2D" unique_id=635833178]
+script = ExtResource("1_osm5n")
+MaxHealth = 10.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1618344460]
+texture = SubResource("GradientTexture2D_ntbkr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1298968897]
+shape = SubResource("RectangleShape2D_rub7e")

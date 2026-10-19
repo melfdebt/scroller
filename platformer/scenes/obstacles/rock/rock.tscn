@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://b3usfhhph5mxe"]
+
+[ext_resource type="Script" uid="uid://ddwbnuct08bbn" path="res://scenes/obstacles/rock/Rock.cs" id="1_atjlv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rub7e"]
+size = Vector2(32, 32)
+
+[sub_resource type="Gradient" id="Gradient_atjlv"]
+colors = PackedColorArray(0.28778407, 0.28778407, 0.28778407, 1, 0.38928655, 0.38928664, 0.38928658, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ntbkr"]
+gradient = SubResource("Gradient_atjlv")
+width = 32
+height = 32
+fill_from = Vector2(0.5121528, 0.8836806)
+fill_to = Vector2(0.5225694, 0.074652776)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ntbkr"]
+size = Vector2(32, 32)
+
+[node name="Rock" type="Area2D" unique_id=1940264815]
+script = ExtResource("1_atjlv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=289723385]
+shape = SubResource("RectangleShape2D_rub7e")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2006169855]
+texture = SubResource("GradientTexture2D_ntbkr")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1457423564]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1345645222]
+shape = SubResource("RectangleShape2D_ntbkr")

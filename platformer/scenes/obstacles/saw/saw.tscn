@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dq08cg2t0l2is"]
+
+[ext_resource type="Script" uid="uid://mmopg63gyulu" path="res://scenes/obstacles/saw/Saw.cs" id="1_sb0m4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hlhrt"]
+size = Vector2(32, 32)
+
+[sub_resource type="Gradient" id="Gradient_sb0m4"]
+offsets = PackedFloat32Array(0.012019231, 0.55528843, 1)
+colors = PackedColorArray(0.4117647, 0.105882354, 0.10980392, 1, 0.21230483, 0.21230483, 0.21230483, 1, 0.4360023, 0.09095044, 0.09892335, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_v6l74"]
+gradient = SubResource("Gradient_sb0m4")
+width = 32
+height = 32
+fill_to = Vector2(1, 1)
+
+[node name="Saw" type="Area2D" unique_id=2130469261]
+script = ExtResource("1_sb0m4")
+FlySpeed = 400.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1409766599]
+shape = SubResource("RectangleShape2D_hlhrt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2065764384]
+texture = SubResource("GradientTexture2D_v6l74")
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://b4l58820mqxiy"]
+
+[ext_resource type="Script" uid="uid://dg1ds68lui3nm" path="res://scenes/enemies/warg/Warg.cs" id="1_4xxhp"]
+
+[sub_resource type="Gradient" id="Gradient_6u2d1"]
+offsets = PackedFloat32Array(0, 0.30048078, 0.64663464, 0.6514423, 1)
+colors = PackedColorArray(0.62352943, 0, 0, 1, 0.5439326, 0.048567545, 0.12546615, 1, 0.47280356, 0.09196833, 0.23758484, 1, 0.460896, 0.09923396, 0.2563544, 1, 0.39215687, 0.14117648, 0.3647059, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ris0d"]
+gradient = SubResource("Gradient_6u2d1")
+width = 32
+height = 32
+fill_to = Vector2(0.9149306, 0.6024306)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0qdhg"]
+size = Vector2(32, 32)
+
+[node name="Warg" type="Area2D" unique_id=696760013]
+script = ExtResource("1_4xxhp")
+MoveSpeed = 100.0
+MaxHealth = 50.0
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=639678291]
+texture = SubResource("GradientTexture2D_ris0d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=388867456]
+shape = SubResource("RectangleShape2D_0qdhg")

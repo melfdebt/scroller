@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dr8ioja5inmsv"]
+
+[ext_resource type="Script" uid="uid://c1iqonut7oecc" path="res://scenes/player/Player.cs" id="1_8afob"]
+
+[sub_resource type="Gradient" id="Gradient_x7p2l"]
+colors = PackedColorArray(0, 0.73583245, 0, 1, 0.5411765, 0.7607843, 0.5411765, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ntbkr"]
+gradient = SubResource("Gradient_x7p2l")
+width = 32
+height = 48
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ntbkr"]
+size = Vector2(32, 48)
+
+[node name="Player" type="CharacterBody2D" unique_id=1874043619]
+script = ExtResource("1_8afob")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1542705440]
+texture = SubResource("GradientTexture2D_ntbkr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1255490116]
+shape = SubResource("RectangleShape2D_ntbkr")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=61995916]
+rect = Rect2(-16, -24, 32, 48)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_On_Screen_Leave"]
